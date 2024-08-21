@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "5b0d25376a8e2a281e822c00c45df7c1"
+name = "branded-logistics-app"
+handle = "branded-logistics-app-5"
+application_url = "https://barrel-people-comments-flying.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "development-snowboard.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://barrel-people-comments-flying.trycloudflare.com/auth/callback",
+  "https://barrel-people-comments-flying.trycloudflare.com/auth/shopify/callback",
+  "https://barrel-people-comments-flying.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
